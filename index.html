@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+  <title>Outaletters: Hangman Game</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="assets/javascript/game.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="wrapper">
+  <img src="assets/images/outatime-01.png" id="wallpaper" alt="Delorean background image">
+    <a class="backToTheFutureFont" href=http://fontmeme.com/back-to-the-future-font/><img src="http://fontmeme.com/permalink/170521/5e7ad4f91750dc926a9496b486221cd3.png" alt="back-to-the-future-font" border="0"></a></a>
+   <h1><strong>Hangman</strong></h1>
+    <h2><em>Press any key to start!</em></h2></div>
+
+<div> 
+    <div id="box1"> </div>
+    <div id="box2"><var html = "<p>Press r, p or s to start playing!</p>" +
+          "<p>wins: " + wins +"</p>"</div>    
+</div>
+
+<div class="game-instructions"><p>Use the alphabet below to guess the word, or click hint to get a clue. </p></div>
+
+<div class="wrapper">
+    <div id="buttons">
+    </div>  
+    <p id="catagoryName"></p>
+    <div id="hold">
+    </div>
+    <p id="mylives"></p>
+    <p id="clue">Clue -</p>  
+     <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas tag</canvas>
+    <div class="container">
+      <button id="hint">Hint</button>
+      <button id="reset">Play again</button>
+    </div>
+</div>
+
+
+</body>
+</html>
