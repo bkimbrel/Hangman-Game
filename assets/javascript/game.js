@@ -3,23 +3,26 @@ window.onload = function () {
   var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
         'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
         't', 'u', 'v', 'w', 'x', 'y', 'z'];
+  // var used_letters = "";
+  
   
   var categories;         // Array of topics
   var chosenCategory;     // Selected catagory
-  var getHint ;          // Word getHint
-  var word ;              // Selected word
-  var guess ;             // Geuss
-  var geusses = [ ];      // Stored geusses
-  var lives ;             // Lives
-  var counter ;           // Count correct geusses
+  var getHint;          // Word getHint
+  var word;              // Selected word
+  var guess;             // Geuss
+  var guesses = [ ];      // Stored guesses
+  var lives;             // Lives
+  var counter;           // Count correct guesses
   var space;              // Number of spaces in word '-'
+  // var wins = 0;             // Word correctly guessed
 
   // Get elements
   var showLives = document.getElementById("mylives");
   var showCatagory = document.getElementById("scatagory");
   var getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
-
+  var showWins = document.getElementById("Wins: ");
 
 
   // create alphabet ul
@@ -39,18 +42,18 @@ window.onload = function () {
   }
     
   
-  // Select Catagory
-  var selectCat = function () {
-    if (chosenCategory === categories[0]) {
-      catagoryName.innerHTML = "The Chosen Category Is Premier League Football Teams";
-    } else if (chosenCategory === categories[1]) {
-      catagoryName.innerHTML = "The Chosen Category Is Films";
-    } else if (chosenCategory === categories[2]) {
-      catagoryName.innerHTML = "The Chosen Category Is Cities";
-    }
-  }
+  // // Select Catagory
+  // var selectCat = function () {
+  //   if (chosenCategory === categories[0]) {
+  //     catagoryName.innerHTML = "The Chosen Category Is Premier League Football Teams";
+  //   } else if (chosenCategory === categories[1]) {
+  //     catagoryName.innerHTML = "The Chosen Category Is Films";
+  //   } else if (chosenCategory === categories[2]) {
+  //     catagoryName.innerHTML = "The Chosen Category Is Cities";
+  //   }
+  // }
 
-  // Create geusses ul
+  // Create guesses ul
    result = function () {
     wordHolder = document.getElementById('hold');
     correct = document.createElement('ul');
@@ -66,24 +69,54 @@ window.onload = function () {
         guess.innerHTML = "_";
       }
 
-      geusses.push(guess);
+      guesses.push(guess);
       wordHolder.appendChild(correct);
       correct.appendChild(guess);
     }
   }
   
+// document.onkeyup = function(event){
+
+//   var letter = event.key;
+//   guess.push(event.key);
+//         document.getElementById("lettersGuessed").innerHTML = guess;
+//         for (var i = 0; i < word.length; i++) {
+//           var n = answer.includes("_ ");
+//           }
+//               if (n == false) {
+//                 alert("You Won This Round!")
+//                 document.getElementById("wins").innerHTML = ("Wins = " + wins++);
+//                 document.getElementById("images").src = ("assets/images/" + currentWord + ".jpg");
+//                 document.getElementById("word").innerHTML = (currentWord);
+//                 reset();
+//                 } 
+//                     console.log(currentWord);
+//     }
+// }
   // Show lives
    comments = function () {
     showLives.innerHTML = "You have " + lives + " lives";
     if (lives < 1) {
       showLives.innerHTML = "Game Over";
     }
-    for (var i = 0; i < geusses.length; i++) {
-      if (counter + space === geusses.length) {
+    for (var i = 0; i < guesses.length; i++) {
+      if (counter + space === guesses.length) {
         showLives.innerHTML = "You Win!";
       }
     }
   }
+
+  // Show Wins 
+  // comments = function () {
+  //   showWins.innerHTML = "Wins " + win + " win";
+  //   if (wins ++) {
+  //     showLives.innerHTML = "Wins: ";
+  //   }
+  //   for (var i = 0; i < guesses.length; i++) {
+  //     if (counter + space === guesses.length) {
+  //       showLives.innerHTML = "You Win!";
+
+      // var win = 0;   
 
       // Animate man
   var animate = function () {
@@ -164,7 +197,7 @@ window.onload = function () {
       this.onclick = null;
       for (var i = 0; i < word.length; i++) {
         if (word[i] === geuss) {
-          geusses[i].innerHTML = geuss;
+          guesses[i].innerHTML = geuss;
           counter += 1;
         } 
       }
@@ -194,7 +227,7 @@ window.onload = function () {
     console.log(word);
     buttons();
 
-    geusses = [ ];
+    guesses = [ ];
     lives = 10;
     counter = 0;
     space = 0;
@@ -230,6 +263,8 @@ window.onload = function () {
     context.clearRect(0, 0, 400, 400);
     play();
   }
+
+  var wins = 0;
 }
 
 
